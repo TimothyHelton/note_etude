@@ -18,12 +18,15 @@
     <button id="instrbtn" class="dropbtn" onclick="instrDetails()">
       Instrument
     </button>
-    <div id="instrDropDown" class="dropDown-content" data-picked=""
-         onclick="toggleText('instrbtn', 'instrDropDown')">
-        <p>Violin</p>
-        <p>Viola</p>
-        <p>Cello</p>
-        <p>Bass</p>
+    <div id="instrDropDown" class="dropDown-content"/>
+      <div id="pickedViolin" data-picked="Violin"
+           onclick="toggleText('instrbtn', 'pickedViolin')">Violin</div>
+      <div id="pickedViola" data-picked="Viola"
+           onclick="toggleText('instrbtn', 'pickedViola')">Viola</div>
+      <div id="pickedCello" data-picked="Cello"
+           onclick="toggleText('instrbtn', 'pickedCello')">Cello</div>
+      <div id="pickedBass" data-picked="Bass"
+           onclick="toggleText('instrbtn', 'pickedBass')">Bass</div>
     </div>
   </div>
 
