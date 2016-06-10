@@ -25,5 +25,6 @@ function toggleText(buttonId, menuId) {
   var sel = document.getElementById(menuId);
   var text = document.getElementById(buttonId).firstChild;
   // TODO set text.data = menu selection
-  text.data = sel.options[sel.selectedIndex].text;
+  // text.data = sel.options[sel.selectedIndex].text;
+  text.data = sel.getAttribute("data-picked");
 }
