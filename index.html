@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Note Etude</title>
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Learn to read sheet music"/>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1>Note Etude</h1>
+
+  <div class="dropDown">
+    <button id="instrbtn" class="dropbtn" onclick="instrDetails()">
+      Instrument
+    </button>
+    <div id="instrDropDown" class="dropDown-content"
+         onclick="toggleText('instrbtn', 'instrDropDown')">
+        <p>Violin</p>
+        <p>Viola</p>
+        <p>Cello</p>
+        <p>Bass</p>
+    </div>
+  </div>
+
+  <!--<h3>Position</h3>-->
+  <!--<label for="position"></label>-->
+  <!--<select required name="position" id="position">-->
+    <!--<option value="" disabled selected hidden>Please Choose...</option>-->
+    <!--<option value="1">1</option>-->
+    <!--<option value="2">2</option>-->
+    <!--<option value="3">3</option>-->
+    <!--<option value="4">4</option>-->
+    <!--<option value="5">5</option>-->
+    <!--<option value="6">6</option>-->
+    <!--<option value="7">7</option>-->
+  <!--</select>-->
+  <script src="logic.js"></script>
+</body>
+</html>

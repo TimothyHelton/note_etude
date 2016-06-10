@@ -1,0 +1,48 @@
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.pyc
+*.so
+
+# Local preferences #
+workspace.xml
+
+# Logs and databases #
+*.log
+*.sql
+*.sqlite
+
+# OS generatee files #
+.DS_Store
+.DS_store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Packages #
+# unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Profile files #
+*.profile
+
+# PyCharm files #
+.idea/*
+
+# Sphinx files #
+python/docs/_build/*
+python/docs/_static/*
+python/docs/_templates/*
