@@ -36,8 +36,38 @@ function posDetails(menuId) {
   var posPick = document.getElementById(menuId).getAttribute("data-picked");
   window.fingerPosition = posPick;
   toggleText("posbtn", "Position: " + posPick);
+  setQuizColor();
 }
 
+// Set quiz box color
+function setQuizColor() {
+  var sel = document.getElementById("quizBox");
+  var quizColor;
+  switch (window.fingerPosition) {
+    case "1":
+      quizColor = "yellow";
+      break;
+    case "2":
+      quizColor = "pink";
+      break;
+    case "3":
+      quizColor = "deepskyblue";
+      break;
+    case "4":
+      quizColor = "lightgoldenrodyellow";
+      break;
+    case "5":
+      quizColor = "lightgreen";
+      break;
+    case "6":
+      quizColor = "orange";
+      break;
+    case "7":
+      quizColor = "white";
+      break;
+  }
+  sel.style.border = "25px solid " + quizColor;
+}
 // Toggle text of clickable drop down menu
 function toggleText(buttonId, newText) {
   var text = document.getElementById(buttonId).firstChild;
