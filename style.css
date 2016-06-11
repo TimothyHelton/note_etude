@@ -1,6 +1,6 @@
-/* Dropdown Button */
+/* Dropdown button */
 .dropbtn {
-    background-color: blueviolet;
+    background-color: blue;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -19,7 +19,7 @@
     display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
+/* Dropdown content (hidden by default) */
 .dropDown-content {
     display: none;
     position: absolute;
@@ -39,5 +39,18 @@
 /* Change color of dropdown links on hover */
 .dropDown-content div:hover {background-color: aliceblue}
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+/* Show the dropdown menu
+(use JS to add this class to the .dropdown-content container when the user
+ clicks on the dropdown button) */
 .show {display:block;}
+
+/* Quiz box */
+.quizBox {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    padding: 25px;
+    border: 25px solid yellow;
+    margin: 10px 0px;
+    display: block;
+}
