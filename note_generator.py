@@ -6,6 +6,7 @@
 .. moduleauthor:: Timothy Helton <timothy.j.helton@gmail.com>
 """
 
+import itertools
 import os
 import os.path as osp
 import subprocess
@@ -23,10 +24,9 @@ class Instrument:
     """
     def __init__(self, clef, pitch_low, pitch_high):
         self.scale = ('c', 'd', 'e', 'f', 'g', 'a', 'b')
-        self.notes = ([x + '4' for x in self.scale] +
-                      [x + "'4" for x in self.scale] +
-                      [x + "''4" for x in self.scale] +
-                      [x + "'''4" for x in self.scale])
+        self.octave = (",,", ",", "'", "''", "'''")
+        self.notes = [''.join(x) for x in
+                      list(itertools.product(self.scale, self.octave))]
         self.clef = clef
         self.pitch_low = pitch_low
         self.pitch_high = pitch_high
