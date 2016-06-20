@@ -7,6 +7,9 @@
 """
 
 import itertools
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+import numpy as np
 import os
 import subprocess
 import termcolor
@@ -61,7 +64,7 @@ class Instrument:
             with open(file_name, 'w') as f:
                 f.write(self.lilypond_input(value))
 
-            subprocess.call(['lilypond', '-s', file_name])
+            subprocess.call(['lilypond', '-s', '--png', file_name])
             os.remove(file_name)
 
         os.chdir('..')
@@ -84,9 +87,28 @@ class Instrument:
                       {}
                   }}'''.format(self.clef, note)
 
-    def crop_images(self):
-        """Crop the Lilypond images uniformly."""
-        pass
+    @staticmethod
+    def format_image(note_image):
+        """Format the Lilypond images uniformly.
+
+        :param str note_image: name of note png image to format
+        """
+        im = mpimg.imread(note_image)
+
+        im_filter = np.where(im < 1)
+        x_min = np.min(im_filter[0])
+        x_max = np.max(im_filter[0])
+        y_min = np.min(im_filter[1])
+        y_max = np.max(im_filter[1])
+        y_clef_idx = np.median(np.where(im_filter[0] == x_min))
+        y_clef = im_filter[1][int(y_clef_idx)]
+
+        pad = 15
+        img_resize = im[x_min - pad:x_max + pad, y_min - pad:y_max + pad]
+
+        #TODO add alpha column to im_resize
+
+        # plt.imsave(note_image, img_transparent)
 
 
 if __name__ == '__main__':
