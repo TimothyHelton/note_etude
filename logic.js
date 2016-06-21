@@ -66,7 +66,7 @@ function setQuizColor() {
       quizColor = "white";
       break;
   }
-  sel.style.border = "25px solid " + quizColor;
+  sel.style.background = quizColor;
 }
 // Toggle text of clickable drop down menu
 function toggleText(buttonId, newText) {
