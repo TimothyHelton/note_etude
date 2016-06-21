@@ -95,6 +95,7 @@ class Instrument:
         """
         im = mpimg.imread(note_image)
 
+        # find image boundaries
         im_filter = np.where(im < 1)
         x_min = np.min(im_filter[0])
         x_max = np.max(im_filter[0])
@@ -103,12 +104,17 @@ class Instrument:
         y_clef_idx = np.median(np.where(im_filter[0] == x_min))
         y_clef = im_filter[1][int(y_clef_idx)]
 
+        # crop image
         pad = 15
         img_resize = im[x_min - pad:x_max + pad, y_min - pad:y_max + pad]
 
-        #TODO add alpha column to im_resize
+        # set transparent background
+        row, col, rgb = img_resize.shape
+        img_transparent = np.append(img_resize, np.zeros((row, col, 1)), axis=2)
+        mask = np.where(img_resize[:, :, :-1] < 1)
+        img_transparent[mask[0], mask[1], -1] = 1
 
-        # plt.imsave(note_image, img_transparent)
+        plt.imsave(note_image, img_transparent)
 
 
 if __name__ == '__main__':
