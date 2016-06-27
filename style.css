@@ -48,8 +48,8 @@
 /* Quiz box */
 .quizBox {
     background-color: white;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 400px;
     padding: 25px;
     border: 2px solid black;
     border-radius: 40px;
