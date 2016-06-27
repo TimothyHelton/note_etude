@@ -55,7 +55,7 @@ class Instrument:
             return
 
         os.chdir(self.clef)
-        for (key, value) in self.notes.items():
+        for (key, value) in sorted(self.notes.items()):
             status = termcolor.colored('Create: {}'.format(key), 'blue',
                                        attrs=['bold'])
             print(status)
@@ -66,6 +66,8 @@ class Instrument:
 
             subprocess.call(['lilypond', '-s', '--png', file_name])
             os.remove(file_name)
+
+            self.format_image('{}.png'.format(key))
 
         os.chdir('..')
 
@@ -97,23 +99,27 @@ class Instrument:
 
         # find image boundaries
         im_filter = np.where(im < 1)
-        x_min = np.min(im_filter[0])
-        x_max = np.max(im_filter[0])
-        y_min = np.min(im_filter[1])
-        y_max = np.max(im_filter[1])
-        y_clef_idx = np.median(np.where(im_filter[0] == x_min))
-        y_clef = im_filter[1][int(y_clef_idx)]
+        x_min = np.min(im_filter[1])
+        x_max = np.max(im_filter[1])
+        y_clef_idx = np.median(np.where(im_filter[1] == x_min))
+        y_clef = im_filter[0][int(y_clef_idx)]
 
         # crop image
-        pad = 15
-        img_resize = im[x_min - pad:x_max + pad, y_min - pad:y_max + pad]
+        x_pad = 15
+        vertical_total = 400
+        upper_pad = int(vertical_total / 2) - y_clef
+        row, col, rgb = im.shape
+        im = np.insert(im, 0, np.broadcast_to(im[0], (upper_pad, col, rgb)),
+                       axis=0)
+        img_resize = im[:vertical_total, (x_min - x_pad):(x_max + x_pad)]
 
         # set transparent background
         row, col, rgb = img_resize.shape
         img_transparent = np.append(img_resize, np.zeros((row, col, 1)), axis=2)
-        mask = np.where(img_resize[:, :, :-1] < 1)
+        mask = np.where(img_resize < 1)
         img_transparent[mask[0], mask[1], -1] = 1
 
+        # save image
         plt.imsave(note_image, img_transparent)
 
 
