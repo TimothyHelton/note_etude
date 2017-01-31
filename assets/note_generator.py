@@ -7,15 +7,17 @@
 """
 
 import itertools
+import os
+import subprocess
+
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-import subprocess
-import termcolor
+
+from strumenti import system
 
 
-__version__ = '1.0.0'
+logger = system.logger_setup(__name__)
 
 
 class Instrument:
@@ -30,7 +32,8 @@ class Instrument:
         self.octave = (",,,", ",,", ",", "", "'", "''", "'''", "''''",
                        "'''''", "''''''")
         self.notes_lilypond = [''.join([x[1], x[0]]) for x in
-                               list(itertools.product(self.octave, self.scale))]
+                               list(itertools.product(self.octave,
+                                                      self.scale))]
         self.sci_notes = [''.join([x[1], str(x[0])]) for x in
                           list(itertools.product(range(10), self.scale))]
         self.notes = {x: y for (x, y) in zip(self.sci_notes,
@@ -44,8 +47,9 @@ class Instrument:
 
     def calc_range(self):
         """All instrument notes for instrument range in Lilypond format."""
-        self.pitch_range = self.sci_notes[self.sci_notes.index(self.pitch_low):
-                                          self.sci_notes.index(self.pitch_high)]
+        low = self.sci_notes.index(self.pitch_low)
+        high = self.sci_notes.index(self.pitch_high)
+        self.pitch_range = self.sci_notes[low:high]
 
     def create_images(self):
         """Create note images using Lilypond."""
@@ -56,9 +60,8 @@ class Instrument:
 
         os.chdir(self.clef)
         for (key, value) in sorted(self.notes.items()):
-            status = termcolor.colored('Create: {}'.format(key), 'blue',
-                                       attrs=['bold'])
-            print(status)
+            logger.info('Create: {}'.format(key))
+
             file_name = '{}.ly'.format(key)
 
             with open(file_name, 'w') as f:
@@ -115,7 +118,8 @@ class Instrument:
 
         # set transparent background
         row, col, rgb = img_resize.shape
-        img_transparent = np.append(img_resize, np.zeros((row, col, 1)), axis=2)
+        img_transparent = np.append(img_resize, np.zeros((row, col, 1)),
+                                    axis=2)
         mask = np.where(img_resize < 1)
         img_transparent[mask[0], mask[1], -1] = 1
 

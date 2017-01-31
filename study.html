@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/stylesheets/main.css"/>
+</head>
+<body>
+    <!--TODO Move this to another page -->
+    <section class="dropDown">
+        <!--Instrument Button-->
+        <button id="instrbtn" class="dropbtn" onclick="showInstruments()">
+            Select Instrument
+        </button>
+        <div id="instrDropDown" class="dropDown-content">
+            <div id="pickedViolin" data-picked="Violin"
+                 onclick="instrDetails('pickedViolin')">
+                Violin
+            </div>
+            <div id="pickedViola" data-picked="Viola"
+                 onclick="instrDetails('pickedViola')">
+                Viola
+            </div>
+            <div id="pickedCello" data-picked="Cello"
+                 onclick="instrDetails('pickedCello')">
+                Cello
+            </div>
+            <div id="pickedBass" data-picked="Bass"
+                 onclick="instrDetails('pickedBass')">
+                Bass
+            </div>
+        </div>
+
+        <!--Positions Button-->
+        <button id="posbtn" class="dropbtn" onclick="showPositions()">
+            Select Position
+        </button>
+        <div id="posDropDown" class="dropDown-content">
+            <div id="pickedPos1" data-picked="1"
+                 onclick="posDetails('pickedPos1')">
+                1
+            </div>
+            <div id="pickedPos2" data-picked="2"
+                 onclick="posDetails('pickedPos2')">
+                2
+            </div>
+            <div id="pickedPos3" data-picked="3"
+                 onclick="posDetails('pickedPos3')">
+                3
+            </div>
+            <div id="pickedPos4" data-picked="4"
+                 onclick="posDetails('pickedPos4')">
+                4
+            </div>
+            <div id="pickedPos5" data-picked="5"
+                 onclick="posDetails('pickedPos5')">
+                5
+            </div>
+            <div id="pickedPos6" data-picked="6"
+                 onclick="posDetails('pickedPos6')">
+                6
+            </div>
+            <div id="pickedPos7" data-picked="7"
+                 onclick="posDetails('pickedPos7')">
+                7
+            </div>
+        </div>
+    </section>
+
+  <section id="quizBox" class="quizBox">
+    <!--<img src="treble/a3.png"/>-->
+  </section>
+  <script src="logic.js"></script>
+
+</body>
+</html>

@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Note Etude</title>
 
-  <meta charset="UTF-8"/>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Learn to read sheet music"/>
+    <head>
+        <title>Note Etude</title>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Learn to read sheet music"/>
 
-<body>
-  <h1>Note Etude</h1>
+        <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    </head>
 
-  <div class="dropDown">
-    <button id="instrbtn" class="dropbtn" onclick="showInstruments()">
-      Select Instrument
-    </button>
-    <div id="instrDropDown" class="dropDown-content">
-      <div id="pickedViolin" data-picked="Violin"
-           onclick="instrDetails('pickedViolin')">
-        Violin
-      </div>
-      <div id="pickedViola" data-picked="Viola"
-           onclick="instrDetails('pickedViola')">
-        Viola
-      </div>
-      <div id="pickedCello" data-picked="Cello"
-           onclick="instrDetails('pickedCello')">
-        Cello
-      </div>
-      <div id="pickedBass" data-picked="Bass"
-           onclick="instrDetails('pickedBass')">
-        Bass
-      </div>
-    </div>
-  </div>
+    <body>
 
-  <div class="dropDown">
-    <button id="posbtn" class="dropbtn" onclick="showPositions()">
-      Select Position
-    </button>
-    <div id="posDropDown" class="dropDown-content">
-      <div id="pickedPos1" data-picked="1"
-           onclick="posDetails('pickedPos1')">
-        1
-      </div>
-      <div id="pickedPos2" data-picked="2"
-           onclick="posDetails('pickedPos2')">
-        2
-      </div>
-      <div id="pickedPos3" data-picked="3"
-           onclick="posDetails('pickedPos3')">
-        3
-      </div>
-      <div id="pickedPos4" data-picked="4"
-           onclick="posDetails('pickedPos4')">
-        4
-      </div>
-      <div id="pickedPos5" data-picked="5"
-           onclick="posDetails('pickedPos5')">
-        5
-      </div>
-      <div id="pickedPos6" data-picked="6"
-           onclick="posDetails('pickedPos6')">
-        6
-      </div>
-      <div id="pickedPos7" data-picked="7"
-           onclick="posDetails('pickedPos7')">
-        7
-      </div>
-    </div>
-  </div>
+        <!-- Header -->
 
-  <div id="quizBox" class="quizBox">
-    <!--<img src="treble/a3.png"/>-->
-  </div>
+        <header>
 
-  <script src="logic.js"></script>
-</body>
+            <h1>
+                <a href="index.html">Note Etude</a>
+            </h1>
+
+            <h3>Studying Music One Note At A Time</h3>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="study.html"></a>
+                <a href="help.html">Help</a>
+            </nav>
+
+        </header>
+
+         <!-- Body -->
+
+        <section>
+            <h2>Enjoy Learning To Play An Instrument</h2>
+
+            <p>
+                The goal of this site is to assist you in learning to play a
+                musical instrument by teaching you how to read sheet music. The
+                most import thing to know about playing an instrument is it's
+                <span>FUN</span>. Do a couple sessions of studying notes and
+                then <span>Go Make Some Music</span>!
+            </p>
+
+        </section>
+
+        <!-- Study -->
+
+        <section>
+
+            <a href="study.html">
+                <h2>Go Study Notes!</h2>
+            </a>
+
+            <p> Choose your instrument and start learning. </p>
+
+        </section>
+
+        <!-- Help -->
+
+        <section>
+
+            <a href="help.html">
+                <h2>How To Use This Site</h2>
+            </a>
+
+            <p>
+                If you are new to this site and are interested in learning to
+                play an instrument <span>CONGRATULATIONS</span>! Check out the
+                help section to see how this site will teach you to read sheet
+                music.
+            </p>
+
+        </section>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <nav>
+                <a href="index.html">Home</a>
+            </nav>
+
+            <small>&copy; Note Etude</small>
+
+        </footer>
+
+    </body>
+
 </html>
