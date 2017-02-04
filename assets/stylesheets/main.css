@@ -100,10 +100,22 @@ Rows
 =========================
 */
 
+..row,
+.row-alt {
+    min-width: 100%;
+}
+
 .row {
     background: #fff;
-    min-width: 960px;
     padding: 66px 0 44px 0;
+}
+
+.row-alt {
+    background: #373550;
+    background: -webkit-linear-gradient(to right, #373550, #648880);
+    background:    -moz-linear-gradient(to right, #373550, #648880);
+    background:         linear-gradient(to right, #373550, #648880);
+    padding: 44px 0 22px 0;
 }
 
 /*
@@ -286,6 +298,7 @@ Home
 }
 
 .hero p{
+    color: #fff;
     font-size: 24px;
     font-weight: 100;
 }
