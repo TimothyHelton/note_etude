@@ -411,11 +411,31 @@ Quiz box
 =============================
 */
 
+.finger-position {
+    float: right;
+}
+
+.finger-radio {
+    display: block;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.notes-position {
+    float: left;
+}
+
+.notes-radio {
+    display: block;
+    margin-left: 50px;
+    text-align: center;
+}
+
 .quiz-box {
     background-color: white;
     border-radius: 40px;
     height: 400px;
-    left: 10%;
+    margin-left: 10%;
     position: relative;
     width: 160px;
 }
