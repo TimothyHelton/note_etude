@@ -415,20 +415,26 @@ Quiz box
     float: right;
 }
 
-.finger-radio {
+.finger-position h5,
+.finger-position label {
     display: block;
     margin-right: 50px;
-    text-align: center;
 }
 
 .notes-position {
     float: left;
 }
 
-.notes-radio {
+.notes-position h5,
+.notes-position label {
     display: block;
     margin-left: 50px;
+}
+
+.finger-position,
+.notes-position {
     text-align: center;
+    word-spacing: 3px;
 }
 
 .quiz-box {
